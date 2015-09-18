@@ -1,0 +1,113 @@
+@import url(http://fonts.googleapis.com/css?family=Schoolbell);
+
+#indexText {
+  margin-top: -480px;
+  text-align: center;
+}
+
+#indexTitle {
+  font-size: 400%;
+  font-weight: bolder;
+  font-family: "Schoolbell";
+  color: white;
+}
+
+/*  responsive   image  */
+
+#backgroundLib {
+  width: 100%;
+  height: 682px;
+}
+
+#backgroundLib2 {
+  width: 100%;
+  height: 682px;
+  display: none;
+}
+
+#backgroundLib3 {
+  width: 100%;
+  height: 682px;
+  display: none;
+}
+
+#backgroundLib4 {
+  width: 100%;
+  height: 682px;
+  display: none;
+}
+
+#backgroundLib5 {
+  width: 100%;
+  height: 682px;
+  display: none;
+}
+
+@media (max-width: 1105px) {
+  #backgroundLib {
+    display: none;
+  }
+
+  #backgroundLib2 {
+    display: block;
+  }
+
+  #indexText {
+    margin-top: -480px;
+    color: white;
+    font-family: "Schoolbell";
+    text-align: center;
+  }
+}
+
+@media (max-width: 953px) {
+  #backgroundLib2 {
+    display: none;
+  }
+
+  #backgroundLib3 {
+    display: block;
+  }
+
+  #indexText {
+    margin-top: -480px;
+    color: white;
+    font-family: "Schoolbell";
+    text-align: center;
+  }
+}
+
+@media (max-width: 730px) {
+  #backgroundLib3 {
+    display: none;
+  }
+
+  #backgroundLib4 {
+    display: block;
+  }
+
+  #indexText {
+    margin-top: -520px;
+    color: white;
+    font-family: "Schoolbell";
+  }
+}
+
+@media (max-width: 561px) {
+  #backgroundLib4 {
+    display: none;
+  }
+
+  #backgroundLib5 {
+    display: block;
+  }
+
+  #indexText {
+    margin-top: -550px;
+    color: white;
+    font-family: "Schoolbell";
+    text-align: center;
+  }
+}
+
+
