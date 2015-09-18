@@ -15,7 +15,7 @@ app.use(methodOverride('_method'));
 
 // post requests (C)
 
-// app.post('/replace_topic', function(req,res) {
+// app.post('/api', function(req,res) {
 
 // });
 
@@ -23,6 +23,25 @@ app.use(methodOverride('_method'));
 
 app.get('/', function(req, res){
   res.render('index');
+});
+
+app.get('/searchbooks', function(req, res) {
+  var searchQ = req.query['bookSearch'];
+  var jsonBody;
+
+  request.get("https://www.googleapis.com/books/v1/volumes?q="+encodeURIComponent(searchQ)+"&maxResults=1", function(err, httpRes, body){
+    if (err) console.log(err);
+    else if (httpRes.statusCode === 404) {
+      res.render('404');
+    } else if (httpRes.statusCode !== 200) {
+      res.render('500');
+    } else {
+      jsonBody = JSON.parse(body);
+      res.render('ajax', {jsonBody: jsonBody});
+      console.log(jsonBody.items[0].volumeInfo);
+      console.log(jsonBody.items[0].saleInfo);
+    }
+  });
 });
 
 // app.get('/replace_topic', function(req, res){

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Library App</title>
+  <link rel="icon" 
+        type="image/png" 
+        href="/img/book.ico">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/css/ajax.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="col-sm-12">
+      <%= jsonBody.items[0].volumeInfo.title %>
+    </div>
+  </div>
+</body>
+</html>
+
+<!-- resource -->
+<!-- jsonBody.items[0].volumeInfo.title => string
+  'Mere Christianity'
+
+jsonBody.items[0].volumeInfo.authors => array of strings
+  ['C. S. Lewis']
+
+jsonBody.items[0].volumeInfo.publishedDate => string 
+  '2009-06-02'
+
+jsonBody.items[0].volumeInfo.industryIdentifiers => array of objects
+  [ { type: 'ISBN_10', identifier: '0061947431' },
+    { type: 'ISBN_13', identifier: '9780061947438' } ]
+
+jsonBody.items[0].volumeInfo.averageRating => number
+  4
+
+jsonBody.items[0].saleInfo.retailPrice.amount => number
+  9.99 -->
+
+
+
+
+
+

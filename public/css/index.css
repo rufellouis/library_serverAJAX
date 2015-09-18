@@ -16,9 +16,14 @@
   margin-top: 60px;
   margin-bottom: 60px;
   font-size: 250%;
+  font-family: "Schoolbell";
   width: 55%;
   color: white;
   background: transparent;
+}
+
+#button {
+  font-family: "Schoolbell";
 }
 
 #submitButton {
