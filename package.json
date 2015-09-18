@@ -15,6 +15,7 @@
     "ejs-mate": "^2.3.0",
     "express": "^4.13.3",
     "method-override": "^2.3.5",
-    "mongoose": "^4.1.7"
+    "mongoose": "^4.1.7",
+    "require": "^2.4.20"
   }
 }
