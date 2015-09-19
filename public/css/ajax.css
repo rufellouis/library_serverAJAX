@@ -1,5 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Kaushan+Script);
 
+.covertArt {
+  width: 100%;
+}
+
+.shrink {
+  width: 100%;
+}
+
 #findPic {
   width: 100%;
 }
@@ -23,3 +31,29 @@ body {
 #foundBooks {
   color: white;
 }
+
+#fixed {
+  position: fixed;
+}
+
+.row {
+  margin-bottom: 40px;
+}
+
+@media (max-width: 767px){
+  #fixed {
+    position: static;
+  }
+
+  .shrink {
+    width: 30%;
+  }
+
+}
+
+
+
+
+
+
+
