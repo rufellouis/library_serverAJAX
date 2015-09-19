@@ -38,8 +38,7 @@ app.get('/searchbooks', function(req, res) {
     } else {
       jsonBody = JSON.parse(body);
       res.render('ajax', {jsonBody: jsonBody});
-      console.log(jsonBody.items[0].volumeInfo);
-      console.log(jsonBody.items[0].saleInfo);
+      console.log(body);
     }
   });
 });

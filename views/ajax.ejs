@@ -19,8 +19,42 @@
 </head>
 <body>
   <div class="container-fluid">
-    <div class="col-sm-12">
-      <%= jsonBody.items[0].volumeInfo.title %>
+    <div class="col-sm-6" id="fixed">
+      <div id="hope">I hope you find what you're looking for!</div>
+      <img src="/img/hp.jpg" id="findPic">
+    </div>
+    <div class="col-sm-6" id="foundBooks">
+      <div class="row">
+        <div class="col-sm-3">
+          <img src="http://books.google.com/books/content?id=xQxhQgAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api">
+        </div>
+        <div class="col-sm-9">
+          <div class="title">Title: Harry Potter and the Prisoner of Azkaban (2009)</div>
+          <div class="author">Author: J.K. Rowling</div>
+          <div class="isbn">ISBN: 9780061947438</div>
+          <div class="rating">Rating: 4</div>
+          <div class="price">Retail Price: 9.99</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <img src="http://books.google.com/books/content?id=xQxhQgAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api">
+        </div>
+        <div class="col-sm-9">
+          <div class="title">Title: Harry Potter and the Prisoner of Azkaban (2009)</div>
+          <div class="author">Author: J.K. Rowling</div>
+          <div class="isbn">ISBN: 9780061947438</div>
+          <div class="rating">Rating: 4</div>
+          <div class="price">Retail Price: 9.99</div>
+        </div>
+      </div>
+
+
+
+      
+
+
     </div>
   </div>
 </body>
@@ -42,6 +76,9 @@ jsonBody.items[0].volumeInfo.industryIdentifiers => array of objects
 
 jsonBody.items[0].volumeInfo.averageRating => number
   4
+
+jsonBody.items[0].volumeInfo.thumbnail => string
+  "http://books.google.com/books/content?id=xQxhQgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
 
 jsonBody.items[0].saleInfo.retailPrice.amount => number
   9.99 -->

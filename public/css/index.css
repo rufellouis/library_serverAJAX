@@ -30,6 +30,10 @@
   display: none;
 }
 
+#fixed {
+  position: fixed;
+}
+
 /*  responsive   image  */
 
 #backgroundLib {
