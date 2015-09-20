@@ -29,7 +29,11 @@
       <% jsonArray.forEach(function(book, index) { %>
         <div class="row">
           <div class="col-sm-5">
-            <img src=<%= jsonArray[index].volumeInfo.imageLinks.thumbnail %> class="shrink">
+            <% if (!jsonArray[index].volumeInfo.imageLinks.thumbnail) { %>
+              <img src="" alt="Book Image" class="shrink">
+            <% } else { %>
+              <img src=<%= jsonArray[index].volumeInfo.imageLinks.thumbnail%> class="shrink">
+            <% } %>
           </div>
           <div class="col-sm-7">
             <div class="title"><strong>Title: </strong><%= jsonArray[index].volumeInfo.title %>
