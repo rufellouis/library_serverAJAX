@@ -26,22 +26,24 @@ app.get('/', function(req, res){
 });
 
 app.get('/searchbooks', function(req, res) {
-  // var searchQ = req.query['bookSearch'];
-  // var jsonBody;
+  var searchQ = req.query['bookSearch'];
+  var jsonArray = [];
 
-  // // request.get("https://www.googleapis.com/books/v1/volumes?q="+encodeURIComponent(searchQ)+"&maxResults=1", function(err, httpRes, body){
-  // //   if (err) console.log(err);
-  // //   else if (httpRes.statusCode === 404) {
-  // //     res.render('404');
-  // //   } else if (httpRes.statusCode !== 200) {
-  // //     res.render('500');
-  // //   } else {
-  // //     jsonBody = JSON.parse(body);
-  // //     res.render('ajax', {jsonBody: jsonBody});
-  // //     console.log(body);
-  // //   }
-  // // });
-  res.render('ajax');
+  request.get("https://www.googleapis.com/books/v1/volumes?q="+encodeURIComponent(searchQ)+"&maxResults=10", function(err, httpRes, body){
+    if (err) console.log(err);
+    else if (httpRes.statusCode === 404) {
+      res.render('404');
+    } else if (httpRes.statusCode !== 200) {
+      res.render('500');
+    } else {
+      var jsonBody = JSON.parse(body).items;
+      jsonBody.forEach(function(book){
+        jsonArray.push(book);
+      });
+      console.log(jsonArray);
+      res.render('ajax', {jsonArray: jsonArray});
+    }
+  });
 });
 
 // app.get('/replace_topic', function(req, res){
