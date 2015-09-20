@@ -47,7 +47,15 @@
           <div class="col-sm-7">
             <div class="title"><strong>Title: </strong><%= jsonArray[index].volumeInfo.title %> (<%= jsonArray[index].volumeInfo.publishedDate.slice(0, 4) %>)</div>
             <div class="author"><strong>Author: </strong><%= jsonArray[index].volumeInfo.authors[0] %></div>
-<!--             <div class="isbn"><strong>ISBN: </strong><%= jsonArray[index].volumeInfo.industryIdentifiers %></div> -->
+            <div class="isbn"><strong>ISBN: </strong>
+              <% if (!jsonArray[index].volumeInfo.industryIdentifiers) { %>
+                <%= "N/A" %>
+              <% } else if (jsonArray[index].volumeInfo.industryIdentifiers.length === 2) { %>
+                <%= jsonArray[index].volumeInfo.industryIdentifiers[1].identifier %>
+              <% } else { %>
+                <%= jsonArray[index].volumeInfo.industryIdentifiers[0].identifier %>
+              <% } %>
+            </div>
 
           </div>
         </div>
