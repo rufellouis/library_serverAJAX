@@ -40,7 +40,6 @@ app.get('/searchbooks', function(req, res) {
       jsonBody.forEach(function(book){
         jsonArray.push(book);
       });
-      console.log(jsonArray);
       res.render('ajax', {jsonArray: jsonArray});
     }
   });
