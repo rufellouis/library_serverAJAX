@@ -25,19 +25,6 @@
     </div>
     <div class="col-sm-6"></div>
     <div class="col-sm-6" id="foundBooks">
-
-      <div class="row">
-        <div class="col-sm-5">
-          <img src="http://books.google.com/books/content?id=xQxhQgAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api" class="shrink">
-        </div>
-        <div class="col-sm-7">
-          <div class="title"><strong>Title:</strong> Harry Potter and the Prisoner of Azkaban (2009)</div>
-          <div class="author"><strong>Author:</strong> J.K. Rowling</div>
-          <div class="isbn"><strong>ISBN:</strong> 9780061947438</div>
-          <div class="rating"><strong>Rating:</strong> 4</div>
-          <div class="price"><strong>Retail Price:</strong> 9.99</div>
-        </div>
-      </div>
       
       <% jsonArray.forEach(function(book, index) { %>
         <div class="row">
@@ -45,8 +32,14 @@
             <img src=<%= jsonArray[index].volumeInfo.imageLinks.thumbnail %> class="shrink">
           </div>
           <div class="col-sm-7">
-            <div class="title"><strong>Title: </strong><%= jsonArray[index].volumeInfo.title %> (<%= jsonArray[index].volumeInfo.publishedDate.slice(0, 4) %>)</div>
-            <div class="author"><strong>Author: </strong><%= jsonArray[index].volumeInfo.authors[0] %></div>
+            <div class="title"><strong>Title: </strong><%= jsonArray[index].volumeInfo.title %>
+              <% if (!jsonArray[index].volumeInfo.publishedDate) { %>
+                (<%= "N/A" %>)
+              <% } else { %>
+                (<%= jsonArray[index].volumeInfo.publishedDate.slice(0, 4) %>)
+              <% } %>
+            </div>
+            <div class="author"><strong>Author: </strong><%= jsonArray[index].volumeInfo.authors %></div>
             <div class="isbn"><strong>ISBN: </strong>
               <% if (!jsonArray[index].volumeInfo.industryIdentifiers) { %>
                 <%= "N/A" %>
@@ -54,6 +47,14 @@
                 <%= jsonArray[index].volumeInfo.industryIdentifiers[1].identifier %>
               <% } else { %>
                 <%= jsonArray[index].volumeInfo.industryIdentifiers[0].identifier %>
+              <% } %>
+            </div>
+            <div class="rating"><strong>Rating: </strong> <%= jsonArray[index].volumeInfo.averageRating %>/5</div>
+            <div class="price">Retail Price: 
+              <% if (!jsonArray[index].saleInfo.retailPrice) { %>
+                <%= "FREE" %>
+              <% } else { %>
+                <%= jsonArray[index].saleInfo.retailPrice.amount %>
               <% } %>
             </div>
 
@@ -72,28 +73,6 @@
 </body>
 </html>
 
-<!-- resource -->
-<!-- jsonBody.items[0].volumeInfo.title => string
-  'Mere Christianity'
-
-jsonBody.items[0].volumeInfo.authors => array of strings
-  ['C. S. Lewis']
-
-jsonBody.items[0].volumeInfo.publishedDate => string 
-  '2009-06-02'
-
-jsonBody.items[0].volumeInfo.industryIdentifiers => array of objects
-  [ { type: 'ISBN_10', identifier: '0061947431' },
-    { type: 'ISBN_13', identifier: '9780061947438' } ]
-
-jsonBody.items[0].volumeInfo.averageRating => number
-  4
-
-jsonBody.items[0].volumeInfo.thumbnail => string
-  "http://books.google.com/books/content?id=xQxhQgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
-
-jsonBody.items[0].saleInfo.retailPrice.amount => number
-  9.99 -->
 
 
 
