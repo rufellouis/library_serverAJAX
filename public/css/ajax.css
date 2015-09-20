@@ -1,8 +1,20 @@
 @import url(http://fonts.googleapis.com/css?family=Kaushan+Script);
 
-.covertArt {
-  width: 100%;
+/*title text*/
+
+#hope {
+  font-size: 500%;
+  font-family: "Kaushan Script";
+  color: white;
+  margin-bottom: 25px;
 }
+
+.tryAgainText {
+  font-size: 220%;
+  font-family: "Kaushan Script";
+}
+
+/*images*/
 
 .shrink {
   width: 100%;
@@ -12,35 +24,67 @@
   width: 100%;
 }
 
-#hope {
-  font-size: 341%;
-  font-family: "Kaushan Script";
-  color: white;
-  margin-top: 60px;
-  margin-bottom: 60px;
+#fixed {
+  position: fixed;
 }
+
+#again {
+  width: 90%;
+}
+
+/*general*/
 
 body {
   background-color: black;
 }
 
-.table {
-  color: white;
+#tryAgain {
+  text-align: center;
 }
+
+/*book information*/
 
 #foundBooks {
   color: white;
-}
-
-#fixed {
-  position: fixed;
 }
 
 .row {
   margin-bottom: 40px;
 }
 
+.title, .author, .isbn, .rating, .price {
+  font-size: 117%;
+}
+
+.author {
+
+}
+
+.isbn {
+
+}
+
+.rating {
+
+}
+
+.price {
+
+}
+
+/*media queries*/
+
+@media (max-width: 880px){
+  #hope {
+    font-size: 430%;
+    margin-bottom: 80px;
+  }
+}
+
 @media (max-width: 767px){
+  #hope {
+    font-size: 300%;
+  }
   #fixed {
     position: static;
   }
@@ -49,6 +93,15 @@ body {
     width: 30%;
   }
 
+  .tryAgainText {
+    font-size: 300%;
+  }
+}
+
+@media (min-height: 1000px){
+  #findPic{
+    display:none;
+  }
 }
 
 
