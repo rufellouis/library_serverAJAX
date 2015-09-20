@@ -45,7 +45,10 @@
             <img src=<%= jsonArray[index].volumeInfo.imageLinks.thumbnail %> class="shrink">
           </div>
           <div class="col-sm-7">
-            TEST
+            <div class="title"><strong>Title: </strong><%= jsonArray[index].volumeInfo.title %> (<%= jsonArray[index].volumeInfo.publishedDate.slice(0, 4) %>)</div>
+            <div class="author"><strong>Author: </strong><%= jsonArray[index].volumeInfo.authors[0] %></div>
+<!--             <div class="isbn"><strong>ISBN: </strong><%= jsonArray[index].volumeInfo.industryIdentifiers %></div> -->
+
           </div>
         </div>
       <% }) %>

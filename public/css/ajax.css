@@ -56,22 +56,6 @@ body {
   font-size: 117%;
 }
 
-.author {
-
-}
-
-.isbn {
-
-}
-
-.rating {
-
-}
-
-.price {
-
-}
-
 /*media queries*/
 
 @media (max-width: 880px){
