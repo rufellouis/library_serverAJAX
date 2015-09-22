@@ -15,6 +15,7 @@
   
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/js/ajax.js"></script>
   <link rel="stylesheet" href="/css/ajax.css">
 </head>
 <body>
@@ -29,7 +30,7 @@
       <% jsonArray.forEach(function(book, index) { %>
         <div class="row">
           <div class="col-sm-5">
-            <% if (!jsonArray[index].volumeInfo.imageLinks.thumbnail) { %>
+            <% if (!jsonArray[index].volumeInfo.imageLinks) { %>
               <img src="" alt="Book Image" class="shrink">
             <% } else { %>
               <img src=<%= jsonArray[index].volumeInfo.imageLinks.thumbnail%> class="shrink">
@@ -61,7 +62,10 @@
                 <%= jsonArray[index].saleInfo.retailPrice.amount %>
               <% } %>
             </div>
-
+            <form action="/books" method="POST">
+              <input type="hidden" name="book[thumbnail]" value="<% if (!jsonArray[index].volumeInfo.imageLinks) { %><%= "Book Image" %><% } else { %><%= jsonArray[index].volumeInfo.imageLinks.thumbnail %><% } %>">
+              <button type="submit" class="btn btn-info">Add to Cart</button>
+            </form>
           </div>
         </div>
       <% }) %>

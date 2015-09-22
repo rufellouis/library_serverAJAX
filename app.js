@@ -4,8 +4,8 @@ var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override'),
-    request = require('request');
-    // db = require('./models');
+    request = require('request'),
+    db = require('./models');
 
 app.set('view engine', 'ejs');
 
@@ -15,9 +15,11 @@ app.use(methodOverride('_method'));
 
 // post requests (C)
 
-// app.post('/api', function(req,res) {
-
-// });
+app.post('/books', function(req,res) {
+  var newBook = req.body.book;
+  db.Book.create(newBook);
+  res.end();
+});
 
 // get requests (R)
 
@@ -31,11 +33,7 @@ app.get('/searchbooks', function(req, res) {
 
   request.get("https://www.googleapis.com/books/v1/volumes?q="+encodeURIComponent(searchQ)+"&maxResults=10", function(err, httpRes, body){
     if (err) console.log(err);
-    else if (httpRes.statusCode === 404) {
-      res.render('404');
-    } else if (httpRes.statusCode !== 200) {
-      res.render('500');
-    } else {
+    else {
       var jsonBody = JSON.parse(body).items;
       jsonBody.forEach(function(book){
         jsonArray.push(book);
