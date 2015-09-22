@@ -64,6 +64,10 @@
             </div>
             <form action="/books" method="POST">
               <input type="hidden" name="book[thumbnail]" value="<% if (!jsonArray[index].volumeInfo.imageLinks) { %><%= "Book Image" %><% } else { %><%= jsonArray[index].volumeInfo.imageLinks.thumbnail %><% } %>">
+              <input type="hidden" name="book[title]" value="<%= jsonArray[index].volumeInfo.title %>">
+              <input type="hidden" name="book[year]" value="<% if (!jsonArray[index].volumeInfo.publishedDate) { %><%= "N/A" %><% } else { %><%= jsonArray[index].volumeInfo.publishedDate.slice(0, 4) %><% } %>">
+              <input type="hidden" name="book[author]" value="<%= jsonArray[index].volumeInfo.authors %>">
+              <input type="hidden" name="book[price]" value="<% if (!jsonArray[index].saleInfo.retailPrice) { %><%= "FREE" %><% } else { %><%= jsonArray[index].saleInfo.retailPrice.amount %><% } %>">
               <button type="submit" class="btn btn-info">Add to Cart</button>
             </form>
           </div>
