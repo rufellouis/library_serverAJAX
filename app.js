@@ -46,21 +46,20 @@ app.get('/searchbooks', function(req, res) {
 app.get('/books', function(req, res){
   db.Book.find({}, function(err, book){
     console.log(book);
-    res.render('show', {book: book});
+    res.render('list', {book: book});
   });
 });
 
-// app.get('/replace_topic/new', function(req, res) {
 
-// });
+app.get('/books/:id', function(req, res) {
+  db.Book.findById(req.params.id, function(err, book){
+    res.render('')
+  });
+});
 
-// app.get('/replace_topic/:id', function(req, res) {
+app.get('/replace_topic/:id/edit', function(req, res) {
 
-// });
-
-// app.get('/replace_topic/:id/edit', function(req, res) {
-
-// });
+});
 
 // put requests (U)
 
