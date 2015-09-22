@@ -18,7 +18,7 @@ app.use(methodOverride('_method'));
 app.post('/books', function(req,res) {
   var newBook = req.body.book;
   db.Book.create(newBook);
-  res.end();
+  res.redirect(req.get('referer'));
 });
 
 // get requests (R)
@@ -43,9 +43,12 @@ app.get('/searchbooks', function(req, res) {
   });
 });
 
-// app.get('/replace_topic', function(req, res){
-
-// });
+app.get('/books', function(req, res){
+  db.Book.find({}, function(err, book){
+    console.log(book);
+    res.render('show', {book: book});
+  });
+});
 
 // app.get('/replace_topic/new', function(req, res) {
 
